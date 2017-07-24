@@ -56,7 +56,7 @@ db.once("open", function () {
 //ROUTES================================================================================
 app.get("/scrape", function (req, res) {
   var newArticle;
-  request("http://viewfromthewing.boardingarea.com", function (error, response, html) {
+  request("https://news.ycombinator.com/", function (error, response, html) {
     var $ = cheerio.load(html);
     $("h2.entry-title").each(function (i, element) {
       var newArticle = new Article({
