@@ -58,21 +58,20 @@ app.get("/scrape", function (req, res) {
   var newArticle;
   request("https://news.ycombinator.com/", function (error, response, html) {
     var $ = cheerio.load(html);
-    $("h2.entry-title").each(function (i, element) {
-      var newArticle = new Article({
+    $("td.title").each(function (i, element) {
+
+     var newArticle = new Article({
         headline: $(this).children("a").text(),
         link: $(this).children("a").attr("href")
       })
       newArticle.save(function (err, data) {
         if (err) {
-          console.log(err)
         }
         else {
         }
       })
     });
-    res.redirect("/")
-     
+    res.redirect("/")    
   });
 });
 
