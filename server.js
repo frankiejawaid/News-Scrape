@@ -32,14 +32,6 @@ app.set('views', __dirname + '/views');
 app.engine("handlebars", exphbs({ defaultLayout: "main", layoutsDir: __dirname + "/views/layouts" }));
 app.set("view engine", "handlebars");
 
-// Database configuration with mongoose
-
-// Database configuration with mongoose
-/*if(process.env.NODE_ENV==="production"){
-  mongoose.connect(process.env.MONGODB_URI);
-} else  {
-  mongoose.connect("mongodb://localhost/mongoscraper");
-}*/
 
 
 var databaseUri = "mongodb://localhost/mongoscraper"; 
